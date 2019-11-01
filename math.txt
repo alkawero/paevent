@@ -1,0 +1,13 @@
+1. generate email pemberitahuan website register.
+2. QTY kehadiran max 2 (1 atau 2 only)
+3. Peserta Luar max 5 dgn id barcode berbeda 
+   harga 5x Rp = xRp.
+4. Pembayaran manual checking, untuk key unique nya generate by system 
+5. pemilihan sesi pakai checkbox   
+   jika ikut 2sesi keluar 2 barcode & harga di kali 2   
+6. untuk akses masuk ruang, sesuai sesinya. sesi 2 tdk bisa masuk sesi 1
+
+
+
+		
+		
