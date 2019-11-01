@@ -1,0 +1,9 @@
+CREATE TABLE `seminar_db`.`event` (
+  `id` INT NOT NULL,
+  `name` VARCHAR(200) NULL,
+  `speaker` VARCHAR(100) NULL,
+  `date_start` DATE NULL,
+  `time_start` DATETIME NULL,
+  `time_end` DATETIME NULL,
+  `date_end` DATE NULL,
+  PRIMARY KEY (`id`));

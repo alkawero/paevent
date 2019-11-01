@@ -1,0 +1,7 @@
+CREATE TABLE `seminar_db`.`payment` (
+  `id` INT NOT NULL,
+  `event_id` INT NULL,
+  `price` DECIMAL(10) NULL,
+  `status` INT NULL,
+  `bukti_bayar` VARCHAR(200) NULL,
+  PRIMARY KEY (`id`));

@@ -1,0 +1,10 @@
+CREATE TABLE `seminar_db`.`participant` (
+  `id` INT NOT NULL,
+  `name` VARCHAR(100) NULL,
+  `email` VARCHAR(100) NULL,
+  `type` INT NULL,
+  `phone` VARCHAR(45) NULL,
+  `registration_code` VARCHAR(45) NULL,
+  `payment_id` INT NULL,
+  `event_id` INT NULL,
+  PRIMARY KEY (`id`));
