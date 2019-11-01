@@ -8920,7 +8920,7 @@ textarea.form-control {
 .ftco-footer {
   font-size: 16px;
   background: #000;
-  padding: 7em 0; }
+  padding: 0px; }
   .ftco-footer .ftco-footer-logo {
     text-transform: uppercase;
     letter-spacing: .1em; }
