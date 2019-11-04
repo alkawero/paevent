@@ -1,5 +1,5 @@
 CREATE TABLE `seminar_db`.`participant` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NULL,
   `email` VARCHAR(100) NULL,
   `type` INT NULL,

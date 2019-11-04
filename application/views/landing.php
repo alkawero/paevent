@@ -19,56 +19,11 @@ input[type=number]::-webkit-outer-spin-button {
 </style>
 <html lang="en">
   <head>
-    <title>Pahoa - Learning for Application</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="<?=base_url();?>css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="<?=base_url();?>css/animate.css">
-    
-    <link rel="stylesheet" href="<?=base_url();?>css/owl.carousel.min.css">
-    <link rel="stylesheet" href="<?=base_url();?>css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="<?=base_url();?>css/magnific-popup.css">
-
-    <link rel="stylesheet" href="<?=base_url();?>css/aos.css">
-
-    <link rel="stylesheet" href="<?=base_url();?>css/ionicons.min.css">
-
-    <link rel="stylesheet" href="<?=base_url();?>css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="<?=base_url();?>css/jquery.timepicker.css">
-
-    
-    <link rel="stylesheet" href="<?=base_url();?>css/flaticon.css">
-    <link rel="stylesheet" href="<?=base_url();?>css/icomoon.css">
-    <link rel="stylesheet" href="<?=base_url();?>css/style.css">
+  <?php $this->load->view("_partials/head.php") ?> 
   </head>
   <body>
     
-	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Pahoa</a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
-
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="<?=base_url();?>" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="<?=base_url();?>about.html" class="nav-link">Tentang Event</a></li>
-	          <li class="nav-item"><a href="<?=base_url();?>speakers.html" class="nav-link">Pembicara</a></li>
-	          <li class="nav-item"><a href="<?=base_url();?>schedule.html" class="nav-link">Agenda</a></li>
-	          <!--li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li-->
-	          <li class="nav-item"><a href="<?=base_url();?>contact.html" class="nav-link">Kontak</a></li>
-			  <li class="nav-item cta mr-md-2"><a onclick="Pendaftaran()" class="nav-link">Pendaftaran</a></li>
-			  <li class="nav-item"><a href="<?=base_url();?>Registration/payment_confirmation" class="nav-link">Konfirmasi Pembayaran</a></li> 
-			  <li class="nav-item"><a href="<?=base_url();?>Login" class="nav-link">Login</a></li>
-
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
+  <?php $this->load->view("_partials/navbar.php") ?>  
     <!-- END nav -->
     
     <div class="hero-wrap" style="background-image: url('<?=base_url();?>images/bg_1.jpg');" data-stellar-background-ratio="0.5">
@@ -126,12 +81,12 @@ input[type=number]::-webkit-outer-spin-button {
 	<h3 class="modal-title">Daftar Seminar</h3>
   </div>
   <div class="modal-body form">
-	<form action="#" id="form" class="form-horizontal">	
-	  <input type="hidden" value=""  name="id"/> 
+	<form action="#" id="form" class="form-horizontal">		  
 	  <div class="form-body">		
 		<div class="row form-group">
 		  <label class="control-label col-md-3">Peserta :</label>
 		  <div class="col-md-9 has-feedback">
+		  <input type="hidden" name="event_id"  id="event_id" value="<?=$event->id;?>"/> 
 			<select class="form-control input-sm" id="txtJenis" name="txtJenis" required >
 				<option value='1'>Umum</option>
 				<option value='2'>Profesional Pendidik</option>
@@ -180,7 +135,7 @@ input[type=number]::-webkit-outer-spin-button {
 		<div class="row form-group">
 		  <label class="control-label col-md-3">Email :</label>
 		  <div class="col-md-9 has-feedback">
-			<input type="text" name="txtNama" id="txtNama" class="form-control" placeholder="Email">
+			<input type="email" name="txtEmail" id="txtEmail" class="form-control" placeholder="Email">
 			<span class="glyphicon glyphicon-user form-control-feedback"></span>
 		  </div>
 		</div>
@@ -387,170 +342,10 @@ input[type=number]::-webkit-outer-spin-button {
 	  </div>
     	</div>
     </section>
-	<footer class="ftco-footer ftco-bg-dark"  >      		         
-		<div class="row">
-          <div class="col-md-12 text-center" >
-            <p style="color:black;"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-				Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a style="color:black;" href="https://colorlib.com" target="_blank">Colorlib</a>
-			   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-			</p>
-          </div>
-        </div>             
-    </footer>
-    
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+	<?php $this->load->view("_partials/footer.php") ?>
 
-  <script src="<?=base_url();?>js/jquery.min.js"></script>
-  <script src="<?=base_url();?>js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="<?=base_url();?>js/popper.min.js"></script>
-  <script src="<?=base_url();?>js/bootstrap.min.js"></script>
-  <script src="<?=base_url();?>js/jquery.easing.1.3.js"></script>
-  <script src="<?=base_url();?>js/jquery.waypoints.min.js"></script>
-  <script src="<?=base_url();?>js/jquery.stellar.min.js"></script>
-  <script src="<?=base_url();?>js/owl.carousel.min.js"></script>
-  <script src="<?=base_url();?>js/jquery.magnific-popup.min.js"></script>
-  <script src="<?=base_url();?>js/aos.js"></script>
-  <script src="<?=base_url();?>js/jquery.animateNumber.min.js"></script>
-  <script src="<?=base_url();?>js/scrollax.min.js"></script>
-  <script src="<?=base_url();?>js/main.js"></script>
+  <?php $this->load->view("_partials/js.php") ?>
     
   </body>
 </html>
 
-<script>
-
-function changeJumlah() {
-	var qty = document.getElementById("jumlah").value;		
-	var total = Math.round(qty * 100000); 		
-	
-	var oSesi = document.getElementsByName("cSesi[]"); 
-	var sesi1 = 0, sesi2=0;
-	if (oSesi[0].checked == true) {
-		sesi1=1;
-	}
-	if (oSesi[1].checked == true) {
-		sesi2=1;
-	}	
-	sesi = sesi1 + sesi2;
-	if (sesi == 0) {
-		alert('Sesi belum di pilih');
-		document.getElementById('cSesi1').focus();
-		total = 0;
-	} else {		
-		total = total * sesi;
-	}	
-	document.getElementById("total").value  = addCommas(total);
-	// document.getElementById('txtNIS').focus();
-}
-
-function Pendaftaran(){
-	save_method = 'add'; 
-	$('#form')[0].reset(); 
-	$('#modal_form').modal('show');
-	$('.modal-title').text('Daftar Seminar ');
-	$('[name="id"]').val(0);
-}
-
-
-function isNumber(evt) {
-	evt = (evt) ? evt : window.event;
-	var jenispeserta = document.getElementById("txtJenis").value;	
-	var charCode = (evt.which) ? evt.which : evt.keyCode;	
-	if (jenispeserta==3) {
-		if (charCode > 31 && (charCode < 49 || charCode > 50)) {
-			return false;
-		}
-	} else {
-		if (charCode > 31 && (charCode < 49 || charCode > 53)) {
-			return false;
-		}
-	}
-	return true;
-}
-	
-function addCommas(nStr) {
-	 nStr += '';
-	 x = nStr.split('.');
-	 x1 = x[0];
-	 x2 = x.length > 1 ? '.' + x[1] : '';
-	 var rgx = /(\d+)(\d{3})/;
-	 while (rgx.test(x1)) {
-		 x1 = x1.replace(rgx, '$1' + ',' + '$2');
-	 }
-	 return x1 + x2;
-} 
-
-
-function save(){
-alert('simpan');
-	/*
-	var url;
-	var status;
-	if(save_method == 'add') 
-	{	status = " tambahkan.";
-		url = "<?php echo site_url('MsPeriode/periode_add')?>";
-	}
-	else
-	{	status = " edit.";
-		url = "<?php echo site_url('MsPeriode/periode_update')?>";
-	} 
-	// alert(url);
-	$.ajax({
-		url : url,
-		type: "POST",
-		data: $('#form').serialize(),
-		dataType: "JSON",
-		success: function(data)
-		{	// alert(data);
-			if(data==1) {
-				$('#pesan_error').html('<div class="alert alert-success" id="kotakpesan" style="text-align:center;">' + "Periode berhasil di " + status + '</div>');				
-			} else { 
-				$('#pesan_error').html('<div class="alert alert-danger" id="kotakpesan" style="text-align:center;">' + "Periode GAGAL di " + status  + '</div>');
-			}
-			location.reload();
-		},
-		error: function (jqXHR, textStatus, errorThrown)
-		{	// console.log (jqXHR);
-			alert('Error adding / update data');
-		}
-	});
-	*/
-}
-
-
-$("#txtJenis").change(function() {
-var pilihan=$(this).val();
-console.log (pilihan);
-if (pilihan==3) {
-	$("rowNIS").show();
-	$("#rowNIS").slideDown(100);
-	document.getElementById("total").value  = 0;
-	document.getElementById('txtNIS').focus();
-} else {
-	$("rowNIS").hide();
-	$("#rowNIS").slideUp(100); 
-	document.getElementById('txtNama').focus();
-	changeJumlah();
-}
-	/* if($(this).val()=="") {
-		$("#rowDetailProsem").hide();		
-		$("rowDetailKiKd").hide();
-		$("#rowDetailKiKd").slideUp(100);
-		
-		$("#rowMapel").slideUp(100);
-		$("#txtMapel").empty();
-		$("#rowSemester").slideUp(1000);
-		$('#txtSemester').prop('selectedIndex',0);
-		
-		$("#rowSubmit").slideUp(100);		
-		$("#rowSubmitKiKd").slideUp(100);
-	} else {
-		var dataform = "txtKelas="+$(this).val();
-		$("#loadingBox").show();
-		$("#loadingInfo").text("Search Mapel");		
-		load_mapel_guru(dataform,"simpan","","");
-	} */
-});
- 
-</script>

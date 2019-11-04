@@ -8,3 +8,4 @@
 <script src="<?php echo base_url('js/dataTables.bootstrap4.js') ?>"></script>
 <!-- Custom scripts for all pages-->
 <script src="<?php echo base_url('js/sb-admin.min.js') ?>"></script>
+<script src="<?php echo base_url('js/axios.js') ?>"></script>

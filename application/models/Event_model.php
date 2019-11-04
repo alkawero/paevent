@@ -38,7 +38,12 @@ class Event_model extends CI_Model
     public function getById($id)
     {
         return $this->db->get_where($this->_table, ["id" => $id])->row();
-    }
+	}
+	
+	public function getActiveEvent()
+    {
+        return $this->db->get_where($this->_table, ["status" => 1])->row();
+	}
 
     public function save()
     {

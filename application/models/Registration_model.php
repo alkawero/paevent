@@ -12,6 +12,9 @@ class Registration_model extends CI_Model
 	public $registration_code;
 	public $payment_id;
 	public $event_id;
+	public $quota;
+	public $nis;
+	public $agency;
 
     public function rules()
     {
@@ -32,36 +35,61 @@ class Registration_model extends CI_Model
 
     public function getAll()
     {
-        return $this->db->get($this->_table)->result();
+		$this->db->select('*');
+		$this->db->from($this->_table);
+		$this->db->join('payment', 'payment.id = participant.payment_id');
+		$query = $this->db->get();
+
+		return $query->result();
     }
     
     public function getById($id)
     {
         return $this->db->get_where($this->_table, ["product_id" => $id])->row();
+	}
+	
+	public function getByEmailAndEventId($email, $event_id)
+    {
+        return $this->db->get_where($this->_table, ["email" => $email, "event_id"=>$event_id])->row();
     }
 
+
+	
     public function save()
     {
-        $post = $this->input->post();
-        $this->product_id = uniqid();
-        $this->name = $post["name"];
-        $this->price = $post["price"];
-        $this->description = $post["description"];
+		$post = $this->input->post();
+		$payment_id = 1;
+        $this->name = $post["txtNama"];
+        $this->email = $post["txtEmail"];
+		$this->type = (int)$post["txtJenis"];
+		$this->phone = $post["txtWA"];
+		$this->agency = $post["txtInstansi"];
+		$this->nis = $post["txtNIS"];
+		$this->quota = $post["jumlah"];
+		$this->payment_id = $payment_id;        
+		$this->event_id = (int)$post["event_id"];
+
         $this->db->insert($this->_table, $this);
     }
 
-    public function update()
+    public function payment_approval($status)
     {
-        $post = $this->input->post();
-        $this->product_id = $post["id"];
-        $this->name = $post["name"];
-        $this->price = $post["price"];
-        $this->description = $post["description"];
-        $this->db->update($this->_table, $this, array('product_id' => $post['id']));
+		$post = $this->input->post();
+		$this->db->set('status', $status);
+		$this->db->where('id', (int)$post['payment_id']);
+		$this->db->update('payment');
+	}
+	
+	public function payment_upload($id_payment,$uploadedImage)
+    {
+		$this->db->set('status', 2);
+		$this->db->set('bukti_bayar', $uploadedImage);
+		$this->db->where('id', $id_payment);
+		$this->db->update('payment');
     }
 
     public function delete($id)
     {
-        return $this->db->delete($this->_table, array("product_id" => $id));
+        
     }
 }

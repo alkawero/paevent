@@ -1,5 +1,5 @@
 CREATE TABLE `seminar_db`.`payment` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `event_id` INT NULL,
   `price` DECIMAL(10) NULL,
   `status` INT NULL,
