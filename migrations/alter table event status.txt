@@ -1,0 +1,2 @@
+ALTER TABLE `seminar_db`.`event` 
+ADD COLUMN `status` INT NOT NULL DEFAULT 1 AFTER `date_end`;
