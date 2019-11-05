@@ -23,4 +23,17 @@ function reject(id){
 	});
 }
 
+function resend(id){
+	$.ajax({
+		type : "POST",
+		url  : "payment_reject",
+		data : {payment_id:id},
+		success: function(data){
+			location.reload()
+		}
+	});
+}
+
+
+
 

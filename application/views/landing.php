@@ -81,7 +81,7 @@ input[type=number]::-webkit-outer-spin-button {
 	<h3 class="modal-title">Daftar Seminar</h3>
   </div>
   <div class="modal-body form">
-	<form action="#" id="form" class="form-horizontal">		  
+	<form method="post" action="<?=base_url('Registration/save')?>" id="form" class="form-horizontal">		  
 	  <div class="form-body">		
 		<div class="row form-group">
 		  <label class="control-label col-md-3">Peserta :</label>
@@ -168,15 +168,15 @@ input[type=number]::-webkit-outer-spin-button {
 		</div>
 		
 	  </div>
-	</form>
+	
 	<div id="pesan_error"></div> <!--alert pesan jika terjadi eror -->
   </div>
   
   <div class="modal-footer">
-	<button type="button" id="btnSave" onclick="save()" class="btn btn-primary">SIMPAN</button>
+	<button type="submit" id="btnSave" class="btn btn-primary">SIMPAN</button>
 	<button type="button" class="btn btn-danger" data-dismiss="modal">BATAL</button>
   </div>
-  
+  </form>
 </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

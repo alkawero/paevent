@@ -82,6 +82,7 @@ if ($_SESSION['logged_in'] !== true) {
 							<td>
 							<button onClick="approve(<?=$participant->payment_id;?>)" type="button" class="btn btn-sm btn-success">Approve</button>
 							<button onClick="reject(<?=$participant->payment_id;?>)" type="button" class="btn btn-sm btn-danger">Reject</button>
+							<button onClick="resend(<?=$participant->payment_id;?>)" type="button" class="btn btn-sm btn-primary">Resend Ticket</button>
 							</td>
 						</tr>
 						<?php endforeach; ?>	
