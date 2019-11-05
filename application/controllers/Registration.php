@@ -1,19 +1,28 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Registration  extends CI_Controller {	
-	
+class Registration  extends CI_Controller
+{
+
 	public function __construct()
-    {
-        parent::__construct();
-        $this->load->model("registration_model");
-    }
-	
+	{
+		parent::__construct();
+		$this->load->model("registration_model");
+		$this->load->model("event_model");
+		$this->load->model("payment_model");
+	}
+
 
 	public function save()
 	{
-		$this->registration_model->save();
-		$this->load->view('payment_confirmation');
+		$post = $this->input->post();
+		$payment_id = $this->payment_model->save();
+
+		$participant_id = $this->registration_model->save($payment_id);
+		$participant = $this->registration_model->getById($participant_id);
+
+		$data['registration_code'] = $participant->registration_code;
+		$this->load->view('payment_confirmation', $data);
 	}
 
 	public function payment_confirmation()
@@ -24,47 +33,45 @@ class Registration  extends CI_Controller {
 	public function payment_upload()
 	{
 		$post = $this->input->post();
-		$email = $post['email'];
-		$event_id = (int)$post['event_id'];
-
-		$payment = $this->registration_model->getByEmailAndEventId($email,$event_id);
-		$uploadedImage = "itu.jpg";		
-		$this->registration_model->payment_upload($payment->payment_id,$uploadedImage);
+		$config['upload_path'] = './images/';		
+		$config['allowed_types'] = 'gif|jpg|png|jpeg';
+		$this->load->library('upload');
+ 		$this->upload->initialize($config);
+		$image = 'image';		
 		
-		$config['upload_path'] = base_url('images/');
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = 2000;
-        $config['max_width'] = 1500;
-        $config['max_height'] = 1500;
+		if (!$this->upload->do_upload($image)) {
+			$error = array('error' => $this->upload->display_errors());
+			$this->load->view('payment_confirmation',$error);
+		} else {
+			$data = array('file_name' => $this->upload->data('file_name'));
+			$uploadedImage = $data['file_name'];
+			
+			$registration_code = $post['registration_code'];
 
-        $this->load->library('upload', $config);
+			$payment = $this->registration_model->getByRegistrationCode($registration_code);
+			
+			$this->registration_model->payment_upload($payment->payment_id, $uploadedImage);
 
-        if (!$this->upload->do_upload('image_evidence')) {
-            $error = array('error' => $this->upload->display_errors());
+			$success = array("success"=>"unggah bukti pembayaran berhasil dilakukan");
 
-            $this->load->view('landing');
-        } else {
-            $data = array('image_metadata' => $this->upload->data());
-
-            $this->load->view('landing');
-        }
-		
+			$this->load->view('payment_confirmation',$success);
+		}
 	}
 
 	public function participant_list()
 	{
 		$data['participants'] = $this->registration_model->getAll();
-		$this->load->view('admin/participant_list',$data);
+		$this->load->view('admin/participant_list', $data);
 	}
-	
+
 
 	public function payment_approve()
-	{		
+	{
 		$this->registration_model->payment_approval(3);
 	}
 
 	public function payment_reject()
-	{		
+	{
 		$this->registration_model->payment_approval(4);
 	}
 }

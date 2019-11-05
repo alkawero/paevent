@@ -45,31 +45,35 @@ class Registration_model extends CI_Model
     
     public function getById($id)
     {
-        return $this->db->get_where($this->_table, ["product_id" => $id])->row();
+        return $this->db->get_where($this->_table, ["id" => $id])->row();
 	}
 	
 	public function getByEmailAndEventId($email, $event_id)
     {
         return $this->db->get_where($this->_table, ["email" => $email, "event_id"=>$event_id])->row();
-    }
-
+	}
+	public function getByRegistrationCode($code)
+    {
+        return $this->db->get_where($this->_table, ["registration_code" => $code])->row();
+	}
 
 	
-    public function save()
+    public function save($payment_id)
     {
 		$post = $this->input->post();
-		$payment_id = 1;
-        $this->name = $post["txtNama"];
+		$this->name = $post["txtNama"];
         $this->email = $post["txtEmail"];
 		$this->type = (int)$post["txtJenis"];
 		$this->phone = $post["txtWA"];
 		$this->agency = $post["txtInstansi"];
 		$this->nis = $post["txtNIS"];
 		$this->quota = $post["jumlah"];
+		$this->registration_code = $post["txtEmail"]."".$payment_id;  
 		$this->payment_id = $payment_id;        
 		$this->event_id = (int)$post["event_id"];
 
-        $this->db->insert($this->_table, $this);
+		$this->db->insert($this->_table, $this);
+		return $this->db->insert_id();
     }
 
     public function payment_approval($status)

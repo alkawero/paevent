@@ -1,0 +1,2 @@
+ALTER TABLE `seminar_db`.`event` 
+ADD COLUMN `price` DECIMAL(13) NULL AFTER `status`;

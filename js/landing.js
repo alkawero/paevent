@@ -97,11 +97,11 @@ function save(){
 		dataType: "JSON",
 		success: function(data)
 		{	// alert(data);
-			window.location.href = "Registration/payment_confirmation"			
+			//window.location.href = "Registration/payment_confirmation"			
 		},
 		error: function (jqXHR, textStatus, errorThrown)
 		{	// console.log (jqXHR);
-			window.location.href = "Registration/payment_confirmation"
+			//window.location.href = "Registration/payment_confirmation"
 		}
 	});
 	
