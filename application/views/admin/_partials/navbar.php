@@ -13,8 +13,7 @@
         <li class="nav-item">
             <a class="nav-link" href="<?=base_url('Login/logout')?>" role="button"
                 aria-expanded="false">
-				<i class="fas fa-user-circle fa-fw"></i>
-				<?= $_SESSION['username'];?>
+				<i class="fas fa-user-circle fa-fw"></i>				
 				Logout
             </a>            
         </li>

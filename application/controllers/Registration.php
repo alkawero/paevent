@@ -15,7 +15,7 @@ class Registration  extends CI_Controller
 
 	public function save()
 	{
-		$post = $this->input->post();
+		$post = $this->input->post();		
 		$payment_id = $this->payment_model->save();
 
 		$participant_id = $this->registration_model->save($payment_id);
@@ -33,29 +33,35 @@ class Registration  extends CI_Controller
 	public function payment_upload()
 	{
 		$post = $this->input->post();
-		$config['upload_path'] = './images/';		
+		$config['upload_path'] = './images/';
 		$config['allowed_types'] = 'gif|jpg|png|jpeg';
 		$this->load->library('upload');
- 		$this->upload->initialize($config);
-		$image = 'image';		
-		
-		if (!$this->upload->do_upload($image)) {
-			$error = array('error' => $this->upload->display_errors());
-			$this->load->view('payment_confirmation',$error);
+		$this->upload->initialize($config);
+		$image = 'image';
+		$result = array();
+		$registration_code = $post['registration_code'];
+
+		if (!$registration_code) {
+			$result['error'] = "Mohon isi kode registrasi dengan benar";
 		} else {
-			$data = array('file_name' => $this->upload->data('file_name'));
-			$uploadedImage = $data['file_name'];
-			
-			$registration_code = $post['registration_code'];
+			if (!$this->upload->do_upload($image)) {
+				$result['error'] = $this->upload->display_errors();
+				$this->load->view('payment_confirmation', $result);
+			} else {
+				$data = array('file_name' => $this->upload->data('file_name'));
+				$uploadedImage = $data['file_name'];
 
-			$payment = $this->registration_model->getByRegistrationCode($registration_code);
-			
-			$this->registration_model->payment_upload($payment->payment_id, $uploadedImage);
+				
 
-			$success = array("success"=>"unggah bukti pembayaran berhasil dilakukan");
 
-			$this->load->view('payment_confirmation',$success);
+				$payment = $this->registration_model->getByRegistrationCode($registration_code);
+
+				$this->registration_model->payment_upload($payment->payment_id, $uploadedImage);
+				$result['success'] = "Berhasil, kami akan cek pembayaran anda dan tiket akan dikirim lewat email mohon cek email anda secara berkala";
+			}
+
 		}
+		$this->load->view('payment_confirmation', $result);
 	}
 
 	public function participant_list()

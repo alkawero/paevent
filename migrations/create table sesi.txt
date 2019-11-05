@@ -1,0 +1,3 @@
+CREATE TABLE `seminar_db`.`sesi` (
+  `sesi` INT NOT NULL,
+  `participant_id` INT NULL);

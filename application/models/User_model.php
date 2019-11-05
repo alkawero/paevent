@@ -1,8 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Registration_model extends CI_Model
+class User_model extends CI_Model
 {
-    private $_table = "participant";
+    private $_table = "seminar_user";
 
     public $id;
     public $name;
@@ -48,10 +48,11 @@ class Registration_model extends CI_Model
         return $this->db->get_where($this->_table, ["id" => $id])->row();
 	}
 	
-	public function getByEmailAndEventId($email, $event_id)
+	public function getByIdPassword($id, $password)
     {
-        return $this->db->get_where($this->_table, ["email" => $email, "event_id"=>$event_id])->row();
+        return $this->db->get_where($this->_table, ["user_id" => $id, "password"=>$password])->row();
 	}
+
 	public function getByRegistrationCode($code)
     {
         return $this->db->get_where($this->_table, ["registration_code" => $code])->row();
@@ -61,11 +62,6 @@ class Registration_model extends CI_Model
     public function save($payment_id)
     {
 		$post = $this->input->post();
-		$this->load->model("event_model");
-		$this->load->model("sesi_model");
-
-		$event = $this->event_model->getActiveEvent();		
-
 		$this->name = $post["txtNama"];
         $this->email = $post["txtEmail"];
 		$this->type = (int)$post["txtJenis"];
@@ -75,17 +71,10 @@ class Registration_model extends CI_Model
 		$this->quota = $post["jumlah"];
 		$this->registration_code = $post["txtEmail"]."".$payment_id;  
 		$this->payment_id = $payment_id;        
-		$this->event_id = $event->id;
+		$this->event_id = (int)$post["event_id"];
 
 		$this->db->insert($this->_table, $this);
-		$participant_id =  $this->db->insert_id();
-		
-		$array_sesi = $post['cSesi'];
-		foreach ($array_sesi as $sesi ) {
-			$this->sesi_model->save($sesi,$participant_id);
-		}
-
-		return $participant_id ;
+		return $this->db->insert_id();
     }
 
     public function payment_approval($status)

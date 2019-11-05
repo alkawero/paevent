@@ -37,19 +37,23 @@ class Payment_model extends CI_Model
     {
 		$post = $this->input->post();
 		$this->load->model("event_model");
-		$event = $this->event_model->getById($post["event_id"]);
+		$event = $this->event_model->getActiveEvent();
 
 		$this->db->select_max('id','max_id');
 		$this->db->from($this->_table);
 		$query = $this->db->get();
 		$max =(int) $query->row('max_id');
 
+		$array_sesi = $post['cSesi'];
+		$totalSesi = count($array_sesi);
+		
+
 		$jumlah = (int)$post["jumlah"];
-		$total = $event->price * $jumlah;
+		$total = $event->price * $jumlah * $totalSesi;
 		$total = $total + ($max+1);
 		
 
-		$this->event_id = $post["event_id"];
+		$this->event_id = $event->id;
         $this->price = $total;
 		
 

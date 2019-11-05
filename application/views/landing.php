@@ -85,8 +85,7 @@ input[type=number]::-webkit-outer-spin-button {
 	  <div class="form-body">		
 		<div class="row form-group">
 		  <label class="control-label col-md-3">Peserta :</label>
-		  <div class="col-md-9 has-feedback">
-		  <input type="hidden" name="event_id"  id="event_id" value="<?=$event->id;?>"/> 
+		  <div class="col-md-9 has-feedback">		  
 			<select class="form-control input-sm" id="txtJenis" name="txtJenis" required >
 				<option value='1'>Umum</option>
 				<option value='2'>Profesional Pendidik</option>
