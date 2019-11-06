@@ -1,0 +1,5 @@
+CREATE TABLE `seminar_db`.`tickets` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `participant_id` INT NULL,
+  `ticket_url` VARCHAR(200) NULL,
+  PRIMARY KEY (`id`));

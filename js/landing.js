@@ -26,26 +26,33 @@ function reject(id){
 
 function changeJumlah() {
 	var qty = document.getElementById("jumlah").value;		
-	var total = Math.round(qty * 100000); 		
+	var total = Math.round(qty * 100000); 	
+	var jenispeserta = document.getElementById("txtJenis").value;	
 	
-	var oSesi = document.getElementsByName("cSesi[]"); 
-	var sesi1 = 0, sesi2=0;
-	if (oSesi[0].checked == true) {
-		sesi1=1;
+	if(jenispeserta!=="3"){
+		var oSesi = document.getElementsByName("cSesi[]"); 
+		var sesi1 = 0, sesi2=0;
+		if (oSesi[0].checked == true) {
+			sesi1=1;
+		}
+		if (oSesi[1].checked == true) {
+			sesi2=1;
+		}	
+		sesi = sesi1 + sesi2;
+		if (sesi == 0) {
+			alert('Sesi belum di pilih');
+			document.getElementById('cSesi1').focus();
+			total = 0;
+		} else {		
+			total = total * sesi;
+		}	
+		document.getElementById("total").value  = addCommas(total);
+	}else{
+		document.getElementById("total").value  = 0;
 	}
-	if (oSesi[1].checked == true) {
-		sesi2=1;
-	}	
-	sesi = sesi1 + sesi2;
-	if (sesi == 0) {
-		alert('Sesi belum di pilih');
-		document.getElementById('cSesi1').focus();
-		total = 0;
-	} else {		
-		total = total * sesi;
-	}	
-	document.getElementById("total").value  = addCommas(total);
-	// document.getElementById('txtNIS').focus();
+
+	
+	
 }
 
 function Pendaftaran(){

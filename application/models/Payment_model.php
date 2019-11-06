@@ -6,7 +6,7 @@ class Payment_model extends CI_Model
 
     public $id;
     public $event_id;
-    public $price;
+    public $price=0;
     public $status = 1;
 	public $bukti_bayar;
 
@@ -36,25 +36,33 @@ class Payment_model extends CI_Model
     public function save()
     {
 		$post = $this->input->post();
+		$participant_type = (int)$post["txtJenis"];
+		
 		$this->load->model("event_model");
 		$event = $this->event_model->getActiveEvent();
-
-		$this->db->select_max('id','max_id');
-		$this->db->from($this->_table);
-		$query = $this->db->get();
-		$max =(int) $query->row('max_id');
-
-		$array_sesi = $post['cSesi'];
-		$totalSesi = count($array_sesi);
-		
-
-		$jumlah = (int)$post["jumlah"];
-		$total = $event->price * $jumlah * $totalSesi;
-		$total = $total + ($max+1);
-		
-
 		$this->event_id = $event->id;
-        $this->price = $total;
+
+		if($participant_type!=3){
+			
+			$this->db->select_max('id','max_id');
+			$this->db->from($this->_table);
+			$query = $this->db->get();
+			$max =(int) $query->row('max_id');
+
+			$array_sesi = $post['cSesi'];
+			$totalSesi = count($array_sesi);
+			
+
+			$jumlah = (int)$post["jumlah"];
+			$total = $event->price * $jumlah * $totalSesi;
+			$total = $total + ($max+1);
+			
+        	$this->price = $total;
+		}
+		
+		
+
+		
 		
 
 		$this->db->insert($this->_table, $this);

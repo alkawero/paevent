@@ -43,9 +43,9 @@ if ($_SESSION['logged_in'] !== true) {
 									<?php
 										if ($participant->type == 1) {
 											echo "Umum";
-										} else if ($participant->status == 2) {
+										} else if ($participant->type == 2) {
 											echo "Profesional Pendidik";
-										} else if ($participant->status == 3) {
+										} else if ($participant->type == 3) {
 											echo "Orang Tua Siswa Pahoa";
 										}
 										?>
@@ -70,7 +70,7 @@ if ($_SESSION['logged_in'] !== true) {
 								</td>
 								<td>
 									<?php
-										if ($participant->status == 1) {
+										if ($participant->status == 1 || $participant->type == 3) {
 											echo "-";
 										} else {
 											?>
@@ -78,10 +78,14 @@ if ($_SESSION['logged_in'] !== true) {
 									<?php
 										}
 										?>
+
 								</td>
 								<td>
 									<?php
-										if ($participant->status == 2) {
+										if (
+											$participant->status == 2
+											|| ($participant->type == 3 && $participant->status <= 2)
+										) {
 											?>
 										<button onClick="approve(<?= $participant->payment_id; ?>)" type="button" class="btn btn-sm btn-success">Approve</button>
 										<button onClick="reject(<?= $participant->payment_id; ?>)" type="button" class="btn btn-sm btn-danger">Reject</button>
@@ -89,8 +93,12 @@ if ($_SESSION['logged_in'] !== true) {
 										} else if ($participant->status == 3) {
 											?>
 
-										<button onClick="resend(<?= $participant->payment_id; ?>)" type="button" class="btn btn-sm btn-primary">Resend</button>
+										<button onClick="resend(<?= $participant->id; ?>)" type="button" class="btn btn-sm btn-primary">Resend</button>
+										<button type="button" onClick="showTickets(<?= $participant->id; ?>)"class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalTickets">
+											tickets
+										</button>
 
+										
 									<?php
 										}
 										?>
@@ -112,6 +120,24 @@ if ($_SESSION['logged_in'] !== true) {
 						</tr>
 					</tfoot>
 				</table>
+
+
+				<div class="modal fade" id="modalTickets" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalCenterTitle">Click to download the tickets</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div id='modal_body_link' class="modal-body">
+								tiket
+							</div>
+							
+						</div>
+					</div>
+				</div>
 
 			</div>
 			<!-- /.container-fluid -->
