@@ -1,2 +1,0 @@
-ALTER TABLE `seminar_db`.`participant` 
-ADD COLUMN `ticket` VARCHAR(200) NULL AFTER `quota`;

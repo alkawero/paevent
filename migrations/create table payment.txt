@@ -1,7 +1,8 @@
-CREATE TABLE `seminar_db`.`payment` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `event_id` INT NULL,
-  `price` DECIMAL(10) NULL,
-  `status` INT NULL,
-  `bukti_bayar` VARCHAR(200) NULL,
-  PRIMARY KEY (`id`));
+CREATE TABLE `payment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `event_id` int(11) DEFAULT NULL,
+  `price` decimal(10,0) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `bukti_bayar` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1

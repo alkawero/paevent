@@ -199,6 +199,7 @@
 			</div>
 		</div>
 	</section>
+	<?php $this->load->view("_partials/modal_daftar.php") ?>
 	<?php $this->load->view("_partials/footer.php") ?>
 
 	<?php $this->load->view("_partials/js.php") ?>

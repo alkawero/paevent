@@ -1,10 +1,14 @@
-CREATE TABLE `seminar_db`.`participant` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(100) NULL,
-  `email` VARCHAR(100) NULL,
-  `type` INT NULL,
-  `phone` VARCHAR(45) NULL,
-  `registration_code` VARCHAR(45) NULL,
-  `payment_id` INT NULL,
-  `event_id` INT NULL,
-  PRIMARY KEY (`id`));
+CREATE TABLE `participant` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `type` int(11) DEFAULT NULL,
+  `phone` varchar(45) DEFAULT NULL,
+  `registration_code` varchar(45) DEFAULT NULL,
+  `payment_id` int(11) DEFAULT NULL,
+  `event_id` int(11) DEFAULT NULL,
+  `agency` varchar(200) DEFAULT NULL,
+  `niy` varchar(45) DEFAULT NULL,
+  `quota` int(11) DEFAULT NULL,  
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1

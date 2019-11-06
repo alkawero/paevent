@@ -7,6 +7,7 @@ class Ticket_model extends CI_Model
     public $id;
 	public $participant_id;
 	public $ticket_url;
+	public $code;
     
        
     public function getByParticipantId($id)
@@ -15,10 +16,11 @@ class Ticket_model extends CI_Model
 	}	
 	
 	
-    public function save($ticket_url,$participant_id)
+    public function save($ticket_url,$participant_id,$code)
     {
 		$this->ticket_url = $ticket_url;
-        $this->participant_id = $participant_id;		
+		$this->participant_id = $participant_id;		
+		$this->code = $code;
 		$this->db->insert($this->_table, $this);	
 		
     }

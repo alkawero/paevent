@@ -1,2 +1,0 @@
-ALTER TABLE `seminar_db`.`participant` 
-ADD COLUMN `nis` VARCHAR(45) NULL AFTER `agency`;

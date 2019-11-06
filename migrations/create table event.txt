@@ -1,9 +1,12 @@
-CREATE TABLE `seminar_db`.`event` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(200) NULL,
-  `speaker` VARCHAR(100) NULL,
-  `date_start` DATE NULL,
-  `time_start` DATETIME NULL,
-  `time_end` DATETIME NULL,
-  `date_end` DATE NULL,
-  PRIMARY KEY (`id`));
+CREATE TABLE `event` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) DEFAULT NULL,
+  `speaker` varchar(100) DEFAULT NULL,
+  `date_start` date DEFAULT NULL,
+  `time_start` datetime DEFAULT NULL,
+  `time_end` datetime DEFAULT NULL,
+  `date_end` date DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  `price` decimal(13,0) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1

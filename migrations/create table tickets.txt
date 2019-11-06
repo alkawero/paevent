@@ -1,5 +1,7 @@
-CREATE TABLE `seminar_db`.`tickets` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `participant_id` INT NULL,
-  `ticket_url` VARCHAR(200) NULL,
-  PRIMARY KEY (`id`));
+CREATE TABLE `tickets` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `participant_id` int(11) DEFAULT NULL,
+  `ticket_url` varchar(200) DEFAULT NULL,
+  `code` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1

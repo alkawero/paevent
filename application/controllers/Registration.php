@@ -93,31 +93,59 @@ class Registration  extends CI_Controller
 
 		foreach ($sessis as $sesi) {//cetak setiap sesi 
 			for ($i = 1; $i < $participant->quota + 1; $i++) {
+				$code = '0'.$participant->type.'0'.$sesi->sesi.$participant->id;
+
+				while(strlen($code.$i)<10){
+					$code.="0";					
+				}
+				$code.=$i;
+				
 				$pdf = new PDF_Code128('l', 'mm', 'A5');
 				// membuat halaman baru
-				$pdf->AddPage();
+				$pdf->AddPage('P');
 				// setting jenis font yang akan digunakan
-				$pdf->SetFont('Arial', 'B', 16);
-				// mencetak string 
-				$pdf->Cell(190, 7, 'Tiket Seminar '.$i, 0, 1, 'C');
-				$pdf->SetFont('Arial', 'B', 12);
-				$pdf->Cell(190, 7, 'Pemilik', 0, 1, 'C');
-				// Memberikan space kebawah agar tidak terlalu rapat
-				$pdf->Cell(10, 7, '', 0, 1);
-				$pdf->SetFont('Arial', 'B', 10);
-				$pdf->Cell(20, 6, 'Nama', 1, 0);
-				$pdf->Cell(85, 6, 'Email', 1, 0);
-				$pdf->Cell(27, 6, 'NO HP', 1, 0);
-				$pdf->Cell(25, 6, 'Sesi', 1, 1);
-				$code = '0'.$participant->type.'0'.$sesi->sesi.$participant->id.$i;
-				$pdf->Code128(50, 120, $code, 80, 20);
-				$pdf->SetXY(50, 45);
-				$file_name = "tickets" . $post['participant_id'] . $i . ".pdf";
+				$pdf->SetFont('Arial','',10);
+				$pdf->Cell(0,10, 'No. Tiket : '.$code, 0, 1);
+				$pdf->Cell(0,10, 'Nama      : '.$participant->name, 0, 1);
+				$pdf->Cell(0,10, 'Email      : '.$participant->email, 0, 1);
+				$pdf->Cell(0,10, 'Berikut kami lampirkan undangan elektronik untuk menghadiri SIGMA SEMINAR', 0, 1);
+				$pdf->Cell(0,10, 'SEKOLAH TERPADU PAHOA 2019, yang dilaksanakan pada:', 0, 1);
+				$pdf->Cell(0,10, 'Hari / Tanggal	: Rabu, 18 Desember 2019', 0, 1);
+				if($sesi->sesi==1){
+					$pdf->Cell(0,10, 'Waktu		: Pk 09.00 - 11.00 WIB (Sesi 1)', 0, 1);
+				}else{
+					$pdf->Cell(0,10, 'Waktu		: Pk 13.00 - 15.00 WIB (Sesi 2)', 0, 1);
+				}				
+
+				$pdf->Cell(0,10, 'Tempat		: SekolahTerpadu Pahoa Gedung F Lantai 9', 0, 1);
+				
+
+				$pdf->Code128(35, 95, $code, 80, 20);		
+				$pdf->Cell(0,30, '', 0, 1);	
+				$pdf->SetFont('Arial','',8);	
+				$pdf->Cell(0,5, '- Undangan ini wajib dicetak di kertas berukuran A4 dan wajib dibawa pada hari seminar ', 0, 1);
+				$pdf->Cell(0,5, 'untuk ditukarkan dengan Tanda Pengenal Peserta', 0, 1);	
+				$pdf->Cell(0,5, '- Satu undangan hanya berlaku untuk satu peserta', 0, 1);
+				$pdf->Cell(0,5, '- Anak dibawah umur 17 tahun dilarang untuk masuk kedalam ruang seminar.', 0, 1);
+				$pdf->Cell(0,5, '- Registrasi akan dibuka mulai pk 08.00', 0, 1);
+				$pdf->SetFont('Arial','B',8);
+				$pdf->Cell(0,5, '- Dress code : Batik resmi', 0, 1);
+				$pdf->SetFont('Arial','',8);
+				$pdf->Cell(0,5, '- Dilarang merokok di dalam area seminar maupun area Sekolah Terpadu Pahoa', 0, 1);
+				$pdf->Cell(0,5, '- Panitia berhak untuk tidak memberikan ijin masuk kedalam tempat seminar', 0, 1);
+				$pdf->Cell(0,5, '  apabila syarat diatas tidak dipenuhi', 0, 1);
+				$pdf->Cell(0,10, '', 0, 1);	
+				$pdf->Cell(0,5, 'SekolahTerpadu Pahoa, Jl. Ki HajarDewantara No1, SummareconSerpong, Tangerang 15810', 0, 1);				
+				$pdf->SetTextColor(0,0,255);
+				$pdf->SetFont('Arial','U',8);	
+				$pdf->Cell(0,5, 'http://sispahoa.sch.id/seminar/', 0, 1,'C',false,'http://sispahoa.sch.id/seminar/');					
+				
+				$file_name = "tickets" . $code . ".pdf";
 	
 				$pdf->Output('F', $directory . $file_name);
 				$file_url = base_url('files/tickets/').$file_name;
 	
-				$this->ticket_model->save($file_url,$post['participant_id']);
+				$this->ticket_model->save($file_url,$post['participant_id'],$code);
 			}
 		}
 

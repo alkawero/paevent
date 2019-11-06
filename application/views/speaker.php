@@ -140,7 +140,8 @@ input[type=number]::-webkit-outer-spin-button {
           </div>
         </div>
       </div>
-    </section>
+	</section>
+	<?php $this->load->view("_partials/modal_daftar.php") ?>
 	<?php $this->load->view("_partials/footer.php") ?>
 
   <?php $this->load->view("_partials/js.php") ?>

@@ -13,7 +13,7 @@ class Registration_model extends CI_Model
 	public $payment_id;
 	public $event_id;
 	public $quota;
-	public $nis;
+	public $niy;
 	public $agency;
 	public $ticket;
 
@@ -72,7 +72,7 @@ class Registration_model extends CI_Model
 		$this->type = (int)$post["txtJenis"];
 		$this->phone = $post["txtWA"];
 		$this->agency = $post["txtInstansi"];
-		$this->nis = $post["txtNIS"];
+		$this->niy = $post["txtNIS"];
 		$this->quota = $post["jumlah"];
 		$this->registration_code = $post["txtEmail"]."".$payment_id;  
 		$this->payment_id = $payment_id;        

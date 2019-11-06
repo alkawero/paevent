@@ -123,7 +123,14 @@ if (pilihan==3) {
 	$("#rowNIS").slideDown(100);
 	document.getElementById("total").value  = 0;
 	document.getElementById('txtNIS').focus();
+	$("#div_instansi").hide();
+	$("#cSesi2").hide();
+	$('#cSesi2').prop('checked', false);
+	$("#label_sesi2").hide();
 } else {
+	$("#cSesi2").show();
+	$("#label_sesi2").show();
+	$("#div_instansi").show();
 	$("rowNIS").hide();
 	$("#rowNIS").slideUp(100); 
 	document.getElementById('txtNama').focus();
