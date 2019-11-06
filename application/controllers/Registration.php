@@ -112,12 +112,12 @@ class Registration  extends CI_Controller
 				$pdf->Cell(0,10, 'SEKOLAH TERPADU PAHOA 2019, yang dilaksanakan pada:', 0, 1);
 				$pdf->Cell(0,10, 'Hari / Tanggal	: Rabu, 18 Desember 2019', 0, 1);
 				if($sesi->sesi==1){
-					$pdf->Cell(0,10, 'Waktu		: Pk 09.00 - 11.00 WIB (Sesi 1)', 0, 1);
+					$pdf->Cell(0,10, 'Waktu		            : Pk 09.00 - 11.00 WIB (Sesi 1)', 0, 1);
 				}else{
-					$pdf->Cell(0,10, 'Waktu		: Pk 13.00 - 15.00 WIB (Sesi 2)', 0, 1);
+					$pdf->Cell(0,10, 'Waktu		            : Pk 13.00 - 15.00 WIB (Sesi 2)', 0, 1);
 				}				
 
-				$pdf->Cell(0,10, 'Tempat		: SekolahTerpadu Pahoa Gedung F Lantai 9', 0, 1);
+				$pdf->Cell(0,10, 'Tempat		         : SekolahTerpadu Pahoa Gedung F Lantai 9', 0, 1);
 				
 
 				$pdf->Code128(35, 95, $code, 80, 20);		
@@ -139,7 +139,7 @@ class Registration  extends CI_Controller
 				$pdf->SetTextColor(0,0,255);
 				$pdf->SetFont('Arial','U',8);	
 				$pdf->Cell(0,5, 'http://sispahoa.sch.id/seminar/', 0, 1,'C',false,'http://sispahoa.sch.id/seminar/');					
-				
+				//$pdf->Line(15, 190, 130, 190);
 				$file_name = "tickets" . $code . ".pdf";
 	
 				$pdf->Output('F', $directory . $file_name);

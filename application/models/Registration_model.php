@@ -85,7 +85,7 @@ class Registration_model extends CI_Model
 		$this->agency = $post["txtInstansi"];
 		$this->niy = $post["txtNIS"];
 		$this->quota = $post["jumlah"];
-		$this->registration_code = $post["txtEmail"]."".$payment_id;  
+		$this->registration_code = $event->id."-".$post["txtJenis"]."-".$payment_id;  
 		$this->payment_id = $payment_id;        
 		$this->event_id = $event->id;
 

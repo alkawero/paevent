@@ -39,13 +39,14 @@
 					if (isset($registration_code)) {
 						?>
 						<div class="form-group">
-							<h5>Lakukan upload bukti bayar,kami akan segera melakukan pengecekan dan mengirim tiketnya melalui email anda.</h5>
-							<h5>mohon simpan <strong>Kode Registrasi</strong> berikut, jika anda ingin melakukan upload bukti bayar nanti.</h5>
+							<h5>Silahkan unggah bukti bayar, kami akan segera melakukan pengecekan dan mengirim tiketnya melalui email anda.</h5>
+							<h5>mohon simpan <strong>Kode Registrasi</strong> berikut, kami juga sudah mengirimkannya ke email anda.</h5>							
+							<h4>Kode Registrasi harus sama persis, termasuk tanda " - " (strip) </h4>
 						</div>
 					<?php
 					} else {
 						?>
-						<h5>Gunakan <strong>Kode Registrasi</strong> yang telah anda dapatkan sebelumnya saat melakukan pendaftaran.</h5>
+						<h5>Gunakan <strong>Kode Registrasi</strong> yang telah kami kirimkan melalui email saat anda melakukan pendaftaran.</h5>
 					<?php
 					}
 					?>
