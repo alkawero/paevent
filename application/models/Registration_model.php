@@ -58,6 +58,17 @@ class Registration_model extends CI_Model
         return $this->db->get_where($this->_table, ["registration_code" => $code])->row();
 	}
 
+	public function countPendaftar()
+    {
+        return $this->db->count_all_results($this->_table);
+	}
+
+	public function countPeserta()
+    {
+        $this->db->select_sum('quota','quota');
+		return $this->db->get($this->_table)->row()->quota;
+	}
+
 	
     public function save($payment_id)
     {

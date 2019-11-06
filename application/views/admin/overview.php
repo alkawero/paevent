@@ -35,7 +35,7 @@ if($_SESSION['logged_in']!==true){
 				<div class="card-body-icon">
 					<i class="fas fa-fw fa-comments"></i>
 				</div>
-				<div class="mr-5">26 New Messages!</div>
+				<div class="mr-5"><?=$jumlahPendaftar;?> Pendaftar</div>
 				</div>
 				<a class="card-footer text-white clearfix small z-1" href="#">
 				<span class="float-left">View Details</span>
@@ -51,7 +51,7 @@ if($_SESSION['logged_in']!==true){
 				<div class="card-body-icon">
 					<i class="fas fa-fw fa-list"></i>
 				</div>
-				<div class="mr-5">11 New Tasks!</div>
+				<div class="mr-5"><?=$jumlahPeserta;?> Peserta</div>
 				</div>
 				<a class="card-footer text-white clearfix small z-1" href="#">
 				<span class="float-left">View Details</span>
@@ -67,7 +67,7 @@ if($_SESSION['logged_in']!==true){
 				<div class="card-body-icon">
 					<i class="fas fa-fw fa-shopping-cart"></i>
 				</div>
-				<div class="mr-5">123 New Orders!</div>
+				<div class="mr-5"><?=$jumlahLunas;?> Lunas</div>
 				</div>
 				<a class="card-footer text-white clearfix small z-1" href="#">
 				<span class="float-left">View Details</span>
@@ -83,9 +83,9 @@ if($_SESSION['logged_in']!==true){
 				<div class="card-body-icon">
 					<i class="fas fa-fw fa-life-ring"></i>
 				</div>
-				<div class="mr-5">13 New Tickets!</div>
+				<div class="mr-5"><?=$jumlahWaiting;?> Belum di Approve</div>
 				</div>
-				<a class="card-footer text-white clearfix small z-1" href="#">
+				<a class="card-footer text-white clearfix small z-1" href="<?=base_url('Registration/participant_list')?>">
 				<span class="float-left">View Details</span>
 				<span class="float-right">
 					<i class="fas fa-angle-right"></i>

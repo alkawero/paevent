@@ -6,7 +6,7 @@ function approve(id) {
 		url: "payment_approve",
 		data: { payment_id: id },
 		success: function(data) {
-			location.reload();
+			resend(id)
 		}
 	});
 }

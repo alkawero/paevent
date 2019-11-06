@@ -29,7 +29,21 @@ class Payment_model extends CI_Model
 	public function getByEmailAndEventId($email, $event_id)
     {
         return $this->db->get_where($this->_table, ["email" => $email, "event_id"=>$event_id])->row();
-    }
+	}
+	
+	public function countLunas()
+    {
+		$this->db->where('status', 3);
+		$this->db->from($this->_table);
+        return $this->db->count_all_results();
+	}
+
+	public function countWaiting()
+    {
+        $this->db->where('status', 2);
+		$this->db->from($this->_table);
+        return $this->db->count_all_results();
+	}
 
 
 	
