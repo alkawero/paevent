@@ -60,7 +60,9 @@ class Registration  extends CI_Controller
 			$data['harga'] = $payment->price;
 
 			if($post['txtJenis'] === '3'){
+				$this->undangan_ortu_model->updateStatus($post['txtNIS'],"registered");
 				$this->send_ticket($participant_id);
+				$data['parent']=true;
 			}else{
 				$this->send_email_registration($participant->email, $payment->price, $participant->registration_code);
 			}

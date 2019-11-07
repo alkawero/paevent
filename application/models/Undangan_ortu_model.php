@@ -22,6 +22,12 @@ class Undangan_ortu_model extends CI_Model
     {
         return $this->db->get_where($this->_table, ["niy" => $niy])->row();
 	}
+
+	public function updateStatus($niy,$status){
+		$this->db->set('status_register', $status);
+		$this->db->where('niy', $niy);
+		$this->db->update($this->_table);
+	}
 	
 	
 }

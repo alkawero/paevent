@@ -51,22 +51,38 @@
 								<h3><?= $error_sibling; ?></h3>
 							</div>
 						</div>
-					<?php
-					} else {
-						?>
-						<div class="form-group">
-							<h1>Selamat !!! Anda telah terdaftar sebagai peserta.</h1>
-							<h4>Mohon lakukan pembayaran sebagai berikut : </h4>
-							<div class="invoice">
-								<p>Nominal : <?= number_format($harga, 0); ?></p>
-								<p>Bank : BCA</p>
-								<p>Atas nama : YPP Pahoa</p>
-								<p>No Rekening : 5405939999</p>
-							</div>
-							<h3>mohon simpan <strong>Kode Registrasi</strong> berikut untuk konfirmasi pembayaran, kami juga sudah mengirimkannya ke email anda.</h5>
-								<h4>Kode Registrasi harus sama persis, termasuk tanda " - " (strip) </h4>
-						</div>
+						<?php
+						} else {
+							if (isset($parent)) {
+								?>
+							<div class="form-group">
 
+								<div class="invoice">
+									<h2>Selamat !!! Anda telah terdaftar sebagai peserta dan kami telah mengirimkan tiket seminar melalui email anda.</h2>
+									<h4>mohon simpan <strong>Kode Registrasi</strong> berikut ini untuk mengirim ulang tiket jika tiket tidak terkirim ke email anda</h4>
+
+								</div>
+
+							</div>
+
+						<?php
+							} else {
+								?>
+							<div class="form-group">
+								<h1>Selamat !!! Anda telah terdaftar sebagai peserta.</h1>
+								<h4>Mohon lakukan pembayaran sebagai berikut : </h4>
+								<div class="invoice">
+									<p>Nominal : <?= number_format($harga, 0); ?></p>
+									<p>Bank : BCA</p>
+									<p>Atas nama : YPP Pahoa</p>
+									<p>No Rekening : 5405939999</p>
+								</div>
+								<h3>mohon simpan <strong>Kode Registrasi</strong> berikut untuk konfirmasi pembayaran, kami juga sudah mengirimkannya ke email anda.</h5>
+									<h4>Kode Registrasi harus sama persis, termasuk tanda " - " (strip) </h4>
+							</div>
+						<?php
+							}
+							?>
 						<div class="form-group">
 							<label for="email">Kode Registrasi</label>
 							<?php
@@ -82,10 +98,14 @@
 								?>
 
 						</div>
-
-						<button type="submit" class="btn btn-primary">konfirmasi Pembayaran</button>
+						<?php
+							if (!isset($parent)) {
+								?>
+							<button type="submit" class="btn btn-primary">konfirmasi Pembayaran</button>
+						<?php } ?>
 
 					<?php
+
 					}
 					?>
 				</form>
@@ -130,7 +150,7 @@
 
 
 
-	<?php $this->load->view("_partials/modal_daftar.php") ?> 				
+	<?php $this->load->view("_partials/modal_daftar.php") ?>
 	<?php $this->load->view("_partials/footer.php") ?>
 
 	<?php $this->load->view("_partials/js.php") ?>
