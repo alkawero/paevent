@@ -9,6 +9,7 @@ class Payment_model extends CI_Model
     public $price=0;
     public $status = 1;
 	public $bukti_bayar;
+	public $officer;
 
     
     public function getAll()
@@ -81,23 +82,6 @@ class Payment_model extends CI_Model
 	}
 	
 	
-
-    public function payment_approval($status)
-    {
-		$post = $this->input->post();
-		$this->db->set('status', $status);
-		$this->db->where('id', (int)$post['payment_id']);
-		$this->db->update('payment');
-	}
-	
-	public function payment_upload($id_payment,$uploadedImage)
-    {
-		$this->db->set('status', 2);
-		$this->db->set('bukti_bayar', $uploadedImage);
-		$this->db->where('id', $id_payment);
-		$this->db->update('payment');
-    }
-
     public function delete($id)
     {
         

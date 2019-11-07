@@ -93,7 +93,7 @@ if ($_SESSION['logged_in'] !== true) {
 										} else if ($participant->status == 3) {
 											?>
 
-										<button onClick="resend(<?= $participant->id; ?>)" type="button" class="btn btn-sm btn-primary">Resend</button>
+										<button onClick="send_ticket(<?= $participant->id; ?>)" type="button" class="btn btn-sm btn-primary">Resend</button>
 										<button type="button" onClick="showTickets(<?= $participant->id; ?>)"class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalTickets">
 											tickets
 										</button>

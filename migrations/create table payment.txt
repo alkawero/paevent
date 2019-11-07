@@ -4,5 +4,6 @@ CREATE TABLE `payment` (
   `price` decimal(10,0) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   `bukti_bayar` varchar(200) DEFAULT NULL,
+  `officer` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1

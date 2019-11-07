@@ -6,7 +6,7 @@ function approve(id) {
 		url: "payment_approve",
 		data: { payment_id: id },
 		success: function(data) {
-			resend(id)
+			send_ticket(id)
 		}
 	});
 }
@@ -22,7 +22,7 @@ function reject(id) {
 	});
 }
 
-function resend(participant_id) {
+function send_ticket(participant_id) {
 	$.ajax({
 		type: "POST",
 		url: "send_ticket",

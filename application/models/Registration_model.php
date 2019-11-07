@@ -121,6 +121,7 @@ class Registration_model extends CI_Model
     {
 		$post = $this->input->post();
 		$this->db->set('status', $status);
+		$this->db->set('officer', $_SESSION['username']);
 		$this->db->where('id', (int)$post['payment_id']);
 		$this->db->update('payment');
 	}
