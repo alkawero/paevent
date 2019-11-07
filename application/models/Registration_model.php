@@ -65,6 +65,12 @@ class Registration_model extends CI_Model
 		return $this->db->get($this->_table)->result();
 	}
 
+	public function getByNiy($niy)
+    {
+		$this->db->where('niy', $niy);
+		return $this->db->get($this->_table)->row();
+	}
+
 	public function getByEmailOrRegCode($parameter)
     {
 		$this->db->where("registration_code",$parameter);

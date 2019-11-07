@@ -27,7 +27,14 @@ class Registration  extends CI_Controller
 			$undangan = $this->undangan_ortu_model->getByNiy($niy);
 			if ($undangan) {
 				$siblingsObj = $this->sibling_model->getSiblings($niy);
+				
+				$ortuExisting =  $this->registration_model->getByNiy($niy);
 
+				if($ortuExisting){
+					$data['error_niy'] = "Pendaftaran sebelumnya sudah dilakukan dengan menggunakan Nomor Induk Siswa yang sama";		
+				}
+				
+				//lanjut pengecekan sibling
 				if ($siblingsObj) {
 					$niys = array();
 					foreach ($siblingsObj as $sib) {
@@ -42,7 +49,7 @@ class Registration  extends CI_Controller
 			} else {
 				$data['error_niy'] = "Nomor Induk Siswa tidak ditemukan, mohon gunakan nomor induk terdaftar";
 			}
-			//lanjut pengecekan sibling
+			
 
 
 		}
