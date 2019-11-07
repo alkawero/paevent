@@ -13,6 +13,7 @@
 	          <li class="nav-item"><a href="<?=base_url();?>Welcome/contact" class="nav-link">Kontak</a></li>
 			  <li class="nav-item cta mr-md-2"><a onclick="Pendaftaran()" class="nav-link">Pendaftaran</a></li>
 			  <li class="nav-item"><a href="<?=base_url();?>Registration/payment_confirmation" class="nav-link">Konfirmasi Pembayaran</a></li> 
+			  <li class="nav-item"><a href="<?=base_url();?>Registration/help" class="nav-link">Bantuan</a></li> 
 			  <li class="nav-item"><a href="<?=base_url();?>Login" class="nav-link">Login</a></li>
 
 	        </ul>

@@ -21,4 +21,5 @@
     
     <link rel="stylesheet" href="<?=base_url();?>css/flaticon.css">
     <link rel="stylesheet" href="<?=base_url();?>css/icomoon.css">
-    <link rel="stylesheet" href="<?=base_url();?>css/style.css">
+	<link rel="stylesheet" href="<?=base_url();?>css/style.css">
+	<link rel="stylesheet" href="<?=base_url();?>css/sb-admin.css">

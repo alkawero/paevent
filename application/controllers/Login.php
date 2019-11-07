@@ -10,6 +10,8 @@ class Login  extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model("user_model");
+		$this->load->model("registration_model");
+		$this->load->model("payment_model");
 	}
 
 	public function index()
@@ -25,20 +27,27 @@ class Login  extends CI_Controller
 		$user = $this->user_model->getByIdPassword($id, $password);
 		//return var_dump($password);
 
-		if($user){
+		if ($user) {
 			$loggedUser = array(
 				'username'  => $post['username'],
 				'password'     => $post['password'],
 				'logged_in' => true
 			);
-	
+
 			$this->session->set_userdata($loggedUser);
-	
-			$this->load->view('admin/overview');
-		}else{
+			$jumlahPendaftar = $this->registration_model->countPendaftar();
+			$jumlahPeserta = $this->registration_model->countPeserta();
+			$jumlahLunas = $this->payment_model->countLunas();
+			$jumlahWaiting = $this->payment_model->countWaiting();
+			$data['jumlahPendaftar'] = $jumlahPendaftar;
+			$data['jumlahPeserta'] = $jumlahPeserta;
+			$data['jumlahLunas'] = $jumlahLunas;
+			$data['jumlahWaiting'] = $jumlahWaiting;			
+
+			$this->load->view('admin/overview',$data);
+		} else {
 			$this->load->view('landing');
 		}
-		
 	}
 
 	public function logout()

@@ -377,3 +377,13 @@ body.sidebar-toggled footer.sticky-footer {
 	margin-right: 0px;
   margin-left: auto;
 }
+.invoice{
+	background-color: #ffffff;
+	border-radius: 10px;
+	height: 200px;
+	width: 100%;
+	padding:6px;
+}
+.invoice p{
+	margin:16px;
+}

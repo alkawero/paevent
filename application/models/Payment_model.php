@@ -23,7 +23,7 @@ class Payment_model extends CI_Model
     
     public function getById($id)
     {
-        return $this->db->get_where($this->_table, ["product_id" => $id])->row();
+        return $this->db->get_where($this->_table, ["id" => $id])->row();
 	}
 	
 	public function getByEmailAndEventId($email, $event_id)
@@ -72,12 +72,9 @@ class Payment_model extends CI_Model
 			$total = $total + ($max+1);
 			
         	$this->price = $total;
-		}
-		
-		
-
-		
-		
+		}else{
+			$this->status = 3;
+		}	
 
 		$this->db->insert($this->_table, $this);
 		return $this->db->insert_id();

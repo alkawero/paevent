@@ -53,9 +53,26 @@ class Registration_model extends CI_Model
     {
         return $this->db->get_where($this->_table, ["email" => $email, "event_id"=>$event_id])->row();
 	}
+	
 	public function getByRegistrationCode($code)
     {
         return $this->db->get_where($this->_table, ["registration_code" => $code])->row();
+	}
+
+	public function getByNiys($niys)
+    {
+		$this->db->where_in('niy', $niys);
+		return $this->db->get($this->_table)->result();
+	}
+
+	public function getByEmailOrRegCode($parameter)
+    {
+		$this->db->where("registration_code",$parameter);
+		$this->db->or_where("email",$parameter);
+		$this->db->join('payment', 'payment.id = participant.payment_id');
+		$this->db->where("payment.status",3);
+		$this->db->order_by('participant.id', 'DESC');
+		return $this->db->get($this->_table)->row();
 	}
 
 	public function countPendaftar()
