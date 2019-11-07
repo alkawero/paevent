@@ -15,7 +15,7 @@ class Registration_model extends CI_Model
 	public $quota;
 	public $niy;
 	public $agency;
-	public $ticket;
+	
 
     public function rules()
     {
@@ -138,14 +138,8 @@ class Registration_model extends CI_Model
 		$this->db->set('bukti_bayar', $uploadedImage);
 		$this->db->where('id', $id_payment);
 		$this->db->update('payment');
-	}
+	}	
 	
-	public function set_ticket_file($id,$file_url)
-    {
-		$this->db->set('ticket', $file_url);
-		$this->db->where('id', $id);
-		$this->db->update($this->_table);
-    }
 
     public function delete($id)
     {

@@ -163,10 +163,10 @@ class Registration  extends CI_Controller
 		$this->registration_model->payment_approval(4);
 	}
 
-	public function send_ticket($participant_id)
+	public function send_ticket($participant_id=null)
 	{		
 		$post = $post = $this->input->post();
-		if(!$participant_id){
+		if(null===$participant_id){
 			$participant_id = $post['participant_id'];
 		}
 		$this->load->library('PDF128');
