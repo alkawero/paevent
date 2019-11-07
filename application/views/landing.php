@@ -42,14 +42,14 @@
 		<div class="container">
 			<div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
 				<div class="col-lg-6 col-md-6 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-					<h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"> Significant of Mathematics<br><span>SIGMA X Seminar</span></h1>
-					<p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="icon-calendar mr-2"></span>18 Desember 2019 - Sekolah Pahoa</p>
-					<div id="timer" class="d-flex">
-						<div class="time" id="days"></div>
-						<div class="time pl-3" id="hours"></div>
-						<div class="time pl-3" id="minutes"></div>
-						<div class="time pl-3" id="seconds"></div>
-					</div>
+            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"> Significant of Mathematics<br><span>SIGMA Seminar</span></h1>			
+            <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="icon-calendar mr-2"></span>18 Desember 2019 - Sekolah Terpadu Pahoa</p>
+            <!--div id="timer" class="d-flex">
+						  <div class="time" id="days"></div>
+						  <div class="time pl-3" id="hours"></div>
+						  <div class="time pl-3" id="minutes"></div>
+						  <div class="time pl-3" id="seconds"></div>
+			</div-->
 				</div>
 				<div class="col-lg-2 col"></div>
 
@@ -89,7 +89,7 @@
 			</div>
 		</div>
 	</section>
-
+<!-- End of update by Eko 5/11/19 -->
 	<section class="ftco-section ftco-no-pt">
 			<div class="container">
 				<div class="row justify-content-center mb-3">
@@ -135,17 +135,8 @@
 			</div>
 			<div class="ftco-schedule">
 				<div class="row">
-					<!--div class="col-md-3 nav-link-wrap text-center text-md-right">
-	            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-	              <a class="nav-link ftco-animate active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">First Day <span>21 July 2019</span></a>
-
-	              <a class="nav-link ftco-animate" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Second Day <span>22 July 2019</span></a>
-
-	              <a class="nav-link ftco-animate" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">Third Day <span>23 July 2019</span></a>
-
-	            </div>
-	          </div> -->
-					<div class="col-md-9 tab-wrap">
+				
+					<div class="col-md-12 tab-wrap">
 
 						<div class="tab-content" id="v-pills-tabContent">
 
@@ -154,9 +145,9 @@
 									<!-- div class="img speaker-img" style="background-image: url(<?= base_url(); ?>images/staff-1.jpg);"></div> -->
 									<div> </div>
 									<div class="text">
-										<h2><a href="#">Sesi 1</a></h2>
+									<h2><a href="#">Sesi 1: How parents can help children to know and learn Mathematics</a></h2>
 										<!--<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p> -->
-										<span class="time">08:00 am - 10:00 am</span>
+									<span class="time">09:00 am - 11:00 am</span>
 
 										<p class="location"><span class="icon-map-o mr-2"></span>Orang tua & Umum</p>
 										<!--
@@ -168,9 +159,9 @@
 								<div class="speaker-wrap ftco-animate d-md-flex">
 									<!-- <div class="img speaker-img" style="background-image: url(<?= base_url(); ?>images/staff-2.jpg);"></div> -->
 									<div class="text">
-										<h2><a href="#">Sesi 2</a></h2>
+									<h2><a href="#">Sesi 2: How Mathematics improve thinking</a></h2>
 										<!-- <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p> -->
-										<span class="time">10:30 am - 12:30 pm</span>
+									<span class="time">13:00 am - 15:00 pm</span>	              			
 										<p class="location"><span class="icon-map-o mr-2"></span>Guru & Karyawan Pahoa</p>
 										<!--
 	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
@@ -178,19 +169,7 @@
 							-->
 									</div>
 								</div>
-								<!--
-	              	<div class="speaker-wrap ftco-animate d-md-flex">
-	              		<div class="img speaker-img" style="background-image: url(<?= base_url(); ?>images/staff-3.jpg);"></div>
-	              		<div class="text">
-	              			<h2><a href="#">Introduction to Business Leaders</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<span class="time">09:00 am - 4:30 pm</span>
-	              			<p class="location"><span class="icon-map-o mr-2"></span>20 July 2019 - Hall, Building Los Angeles CA</p>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="speaker-name">&mdash; <a href="#">Ryan Thompson</a> <span class="position">Founder of Wordpress</span></h3>
-	              		</div>
-	              	</div>
-					-->
+								
 							</div>
 						</div>
 					</div>
@@ -208,28 +187,28 @@
 			</div>
 			<div class="row">
 				<div class="col-md-3 ftco-animate">
-					<a href="<?= base_url(); ?><?= base_url(); ?>images/image_1.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?= base_url(); ?>images/Gallery_1.jpg);">
+						<a href="<?=base_url();?>images/Gallery_1.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?=base_url();?>images/Gallery_1.jpg);">
 						<div class="icon mb-4 d-flex align-items-center justify-content-center">
 							<span class="icon-instagram"></span>
 						</div>
 					</a>
 				</div>
 				<div class="col-md-3 ftco-animate">
-					<a href="<?= base_url(); ?><?= base_url(); ?>images/image_2.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?= base_url(); ?>images/Gallery_2.jpg);">
+						<a href="<?=base_url();?>images/Gallery_2.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?=base_url();?>images/Gallery_2.jpg);">
 						<div class="icon mb-4 d-flex align-items-center justify-content-center">
 							<span class="icon-instagram"></span>
 						</div>
 					</a>
 				</div>
 				<div class="col-md-3 ftco-animate">
-					<a href="<?= base_url(); ?>images/image_3.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?= base_url(); ?>images/Gallery_3.jpg);">
+						<a href="<?=base_url();?>images/Gallery_3.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?=base_url();?>images/Gallery_3.jpg);">
 						<div class="icon mb-4 d-flex align-items-center justify-content-center">
 							<span class="icon-instagram"></span>
 						</div>
 					</a>
 				</div>
 				<div class="col-md-3 ftco-animate">
-					<a href="<?= base_url(); ?><?= base_url(); ?>images/image_4.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?= base_url(); ?>images/Gallery_4.jpg);">
+						<a href="<?=base_url();?>images/Gallery_4.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(<?=base_url();?>images/Gallery_4.jpg);">
 						<div class="icon mb-4 d-flex align-items-center justify-content-center">
 							<span class="icon-instagram"></span>
 						</div>
@@ -247,23 +226,21 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6">
-					<div class="speaker ftco-animate speaker-1 d-flex align-items-center mb-5">
-						<div class="img" style="background-image: url(<?= base_url(); ?>images/wilt-yeap-ban-har.jpg);"></div>
-						<div class="text pl-4">
-							<h3>Dr. Yeap Ban Har</h3>
-							<span class="position">Principal at Marshall Cavendish Institute</span>
-							<p>Based in Singapore, Ban Har travels the world to teach mathematics education courses.</p>
-							<ul class="ftco-social">
-								<li><a href="https://twitter.com/ban_har"><span class="icon-twitter"></span></a></li>
-								<li><a href="https://www.facebook.com/BanHarMaths"><span class="icon-facebook"></span></a></li>
-								<li><a href="https://www.instagram.com/yeapbanhar"><span class="icon-instagram"></span></a></li>
-							</ul>
-						</div>
-					</div>
+		
+			<div class="speaker-wrap ftco-animate d-md-flex">
+				<div class="img speaker-img"  class="user-img mb-4" style="background-image: url(images/yeap_ban_har.jpg);"></div>
+				<div class="text">
+					<h3>Dr. Yeap Ban Har</h3>
+	        		<span class="position">Principal at Marshall Cavendish Institute</span>
+					<p>Pakar terkemuka dunia asal Singapura dalam bidang pengembangan profesional untuk para guru matematika. Beliau telah menyajikan banyak ceramah utama di konferensi pendidikan internasional dan di berbagai universitas di seluruh dunia.</p>					 
+					 <a href="https://twitter.com/ban_har"><span class="icon-twitter"></span></a>
+					 <a href="https://www.facebook.com/BanHarMaths"><span class="icon-facebook"></span></a>
+					 <a href="https://www.instagram.com/yeapbanhar"><span class="icon-instagram"></span></a>
 				</div>
-			</div>
+			</div> 	
 		</div>
+    	</div>
+		
 	</section>
 	<?php $this->load->view("_partials/footer.php") ?>
 

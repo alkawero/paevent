@@ -26,19 +26,18 @@ input[type=number]::-webkit-outer-spin-button {
   <?php $this->load->view("_partials/navbar.php") ?>  
     <!-- END nav -->
     
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('<?=base_url();?>images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <!--section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('<?=base_url();?>images/bg_2.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
           <div class="col-md-9 ftco-animate pb-5">
-            <h1 style="color:white;" class="mb-3 bread">Speakers</h1>
-            
+            <h1 class="mb-3 bread">Speakers</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Speakers <i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
       </div>
-    </section>
-   	
-		<section class="ftco-section">
+    </section -->
+   	<section class="ftco-section">
     	<div class="container">
     		<div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
@@ -48,20 +47,27 @@ input[type=number]::-webkit-outer-spin-button {
         <div class="row">
         	<div class="col-md-6 d-flex align-items-stretch">
         		<div class="speaker speaker-2 ftco-animate d-flex align-items-stretch">
-	        		<div class="img" style="background-image: url(<?=base_url();?>images/staff-3.jpg);">
+	        		<div class="img" style="background-image: url(images/yeap_ban_har.jpg);">
 	        			<div class="text text-absolute">
-		        			<h3>Robert Bonner</h3>
-		        			<span class="position">Businessmen</span>
+		        			<h3>Dr. Yeap Ban Har</h3>
+		        			<span class="position">Principal at Marshall Cavendish Institute</span>
 		        			<ul class="ftco-social mt-3">
-		                <li><a href="#"><span class="icon-twitter"></span></a></li>
-		                <li><a href="#"><span class="icon-facebook"></span></a></li>
-		                <li><a href="#"><span class="icon-instagram"></span></a></li>
-		              </ul>
+								<a href="https://twitter.com/ban_har"><span class="icon-twitter"></span></a>
+								<a href="https://www.facebook.com/BanHarMaths"><span class="icon-facebook"></span></a>
+								<a href="https://www.instagram.com/yeapbanhar"><span class="icon-instagram"></span></a>
+							</ul>
 		        		</div>
 	        		</div>
 	        	</div>
         	</div>
-        	<div class="col-md-6">
+ 
+        	<div class="col-md-7">			
+				<p>The media has called Dr. Yeap Ban Har “Singapore Math's Michael Jordan” and “Royalty when it comes to Singapore Math.” He is considered to be one of the most accomplished trainers and speakers in the world on the subject of K12 Mathematics, and the Singapore approach to teaching mathematics.</p>
+				<p>Dr. Yeap taught at National Institute of Education, Nanyang Technological University in Singapore for more than ten years. There he taught a range of teacher education courses and was involved in several funded research programs in mathematics education.</p>
+				<p>For the last eight years, he has held two concurrent positions as the Director of Curriculum and Professional Development at the Pathlight School in Singapore, and the principal of Marshall Cavendish Institute, a global teacher professional development division of Marshall Cavendish Publishers. He has since left his position at Marshall Cavendish Institute to take up a more active role at the Anglo Singapore International School, a Singapore school with three campuses in Thailand.</p>
+				<p>He has authored dozens of textbooks, various titles in mathematics education, and scholarly articles. His latest project is the new program, “think! Mathematics” by Shing Lee Publishers, an exciting new elementary Singapore Mathematics program coauthored with the owners of 3R Industries, Drs. Amy and Bill Tozzo.</p>
+			
+				<!--
         		<div class="speaker ftco-animate speaker-1 d-flex align-items-center mb-5">
 	        		<div class="img" style="background-image: url(<?=base_url();?>images/staff-1.jpg);"></div>
 	        		<div class="text pl-4">
@@ -114,12 +120,14 @@ input[type=number]::-webkit-outer-spin-button {
 	              </ul>
 	        		</div>
 	        	</div>
+				-->
         	</div>
         </div>
     	</div>
     </section>
-		
-		<section class="ftco-section-parallax ftco-section ftco-no-pt">
+	</section>
+	<!--
+	<section class="ftco-section-parallax ftco-section ftco-no-pt">
       <div class="parallax-img d-flex align-items-center">
         <div class="container">
           <div class="row d-flex justify-content-center">
@@ -140,7 +148,7 @@ input[type=number]::-webkit-outer-spin-button {
           </div>
         </div>
       </div>
-	</section>
+    </section> -->
 	<?php $this->load->view("_partials/modal_daftar.php") ?>
 	<?php $this->load->view("_partials/footer.php") ?>
 

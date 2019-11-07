@@ -31,18 +31,56 @@
 	<?php $this->load->view("_partials/navbar.php") ?>
 	<!-- END nav -->
 
-	<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('<?= base_url(); ?>images/bg_2.jpg');" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-				<div class="col-md-9 ftco-animate pb-5">
-					<h1 style="color:white;" class="mb-3 bread">Conference Schedule</h1>
-					
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('<?=base_url();?>images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+          <div class="col-md-11 ftco-animate pb-10">
+<!--        <h1 class="mb-3 bread">Conference Schedule</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Schedule <i class="ion-ios-arrow-forward"></i></span></p>
+----->			
+			<section class="ftco-section">
+			<div class="container">
+				<div class="ftco-schedule">
+					<div class="row block-5"> 
+					  <div class="col-md-12 tab-wrap">	            
+							<form action="#" class="bg-light p-5 contact-form">
+								<!-- div class="img speaker-img" style="background-image: url(<?=base_url();?>images/staff-1.jpg);"></div> -->								
+								<div class="text">
+									<h3><a href="#">Sesi 1: How parents can help children to know and learn Mathematics</a></h3>
+									<!--<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p> -->
+									<span class="time">09:00 am - 11:00 am</span>									
+									<p class="location"><span class="icon-map-o mr-2"></span>Orang tua & Umum</p>
+									<br>
+									<h3><a href="#">Sesi 2: How Mathematics improve thinking</a></h3>
+									<!-- <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p> -->
+									<span class="time">13:00 am - 15:00 pm</span>	              			
+									<p class="location"><span class="icon-map-o mr-2"></span>Guru & Karyawan Pahoa</p>
+									
+									<!--
+									<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+									<h3 class="speaker-name">&mdash; <a href="#">Ryan Thompson</a> <span class="position">Founder of Wordpress</span></h3>
+									-->
+								</div>
+							</form>												
+						  
+						 
+					  </div>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>			
+			
+			
+			
+			
+<!---->			
+          </div>
+        </div>
+      </div>
+    </section>
 
+	<!--
 	<section class="ftco-section">
 		<div class="container">
 			<div class="ftco-schedule">
@@ -197,6 +235,7 @@
 			</div>
 		</div>
 	</section>
+-->
 	<?php $this->load->view("_partials/modal_daftar.php") ?>
 	<?php $this->load->view("_partials/footer.php") ?>
 
