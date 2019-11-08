@@ -170,7 +170,7 @@ class Registration  extends CI_Controller
 			$participant_id = $post['participant_id'];
 		}
 		$this->load->library('PDF128');
-		$directory = "C:/xampp1-8-3/htdocs/seminar/files/tickets/";
+		$directory = "files/tickets/";
 		$sessis = $this->sesi_model->getByParticipantId($participant_id);
 		$participant = $this->registration_model->getById($participant_id);
 		$this->ticket_model->deleteByParticipantId($participant_id);

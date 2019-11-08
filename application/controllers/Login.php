@@ -31,6 +31,7 @@ class Login  extends CI_Controller
 			$loggedUser = array(
 				'username'  => $post['username'],
 				'password'     => $post['password'],
+				'groupx'     => $user->user_group,
 				'logged_in' => true
 			);
 

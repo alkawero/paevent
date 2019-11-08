@@ -5,8 +5,12 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
         </a>
-    </li>    
+	</li>   
+	<?php
+	if($_SESSION['groupx']==1){
+	?> 
     <li class="nav-item">
 	<a class="nav-link" href="<?php echo site_url('Registration/participant_list') ?>">Participant</a>
-    </li>
+	</li>
+	<?php }?>
 </ul>
